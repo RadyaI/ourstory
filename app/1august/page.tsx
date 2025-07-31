@@ -1,6 +1,6 @@
 "use client"
 
-import CircleOne from "@/components/rootPage/sticker"
+import Stiker from "@/components/blog/1august"
 import { db } from "@/config/firebase"
 import { collection, doc, getDocs, query, updateDoc, where } from "firebase/firestore"
 import Image from "next/image"
@@ -44,15 +44,13 @@ export default function LetterPage() {
 
     return (
         <>
+            <Stiker></Stiker>
             <Toaster position="bottom-right" />
-            <CircleOne></CircleOne>
             <div className="rounded-lg md:bg-black/50 text-white text-justify w-full md:w-[60%] mx-auto mt-10 mb-10 p-6">
                 <small>1 Agustus 2025</small>
                 <p className="mt-5">
                     <i>Pada suatu hari meng-drama ngomong "jangan lupa 1 Agustus ya"</i>, aku langsung mikir haaa? emang 1 Agustus hari apa?
                     di kalender juga ga ada hari apa apa tuh, hmmm coba aku cari di google aah <i>browsing... 1 agustus hari apa?</i>
-
-
                 </p>
                 <Image className="mt-5" src={"/assets/blog/1august_1.png"} alt="google" width={600} height={500}></Image>
                 <p className="mt-5">
