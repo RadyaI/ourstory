@@ -40,3 +40,17 @@ body::-webkit-scrollbar-thumb{
   background-color: pink;
   border-radius: 55px;
 }
+
+textarea::-webkit-scrollbar{
+  width: 10px;
+}
+
+textarea::-webkit-scrollbar-track{
+  background-color: transparent;
+}
+
+textarea::-webkit-scrollbar-thumb{
+  width: 10px;
+  background-color: pink;
+  border-radius: 55px;
+}

@@ -92,7 +92,7 @@ export default function LetterPage() {
                 <p className="mt-5">
                     Kamu punya banyak sifat, tapi yang ku <i>highlight</i> tuh CLINGY sama DEWASA, kamu punya 2 sifat yang berlawanan itu dalam dirimu, jadi
                     se-badmood badmoodnya kamu atau biasanya overthinking, kamu masih bisa nyoba buat berfikir jernih + nenangin diri, sebaliknya se-serius seriusnya kamu,
-                    kamu juga punya sifat yang CLINGY atau CHILDISH <i>that's why i like you (2)</i>.
+                    kamu juga punya sifat yang CLINGY atau CHILDISH <i>that's why i like you</i>.
                 </p>
                 <p className="mt-5">Aku ngerasa kamu orang yang keren banget bisa seimbang gituu, responku:</p>
                 <ul className="mt-5">
@@ -139,15 +139,15 @@ export default function LetterPage() {
                 <p className="mt-5">
                     SELESAIIIIIIIII setelah kamu baca kamu bisa lihat web yang aku buat ini yaaa <a className="text-blue-400 cursor-pointer" href="https://savememo.vercel.app">di sini</a>
                 </p>
-                <p className="mt-10 text-gray-500">
+                <p className="mt-5 text-gray-500">
                     <small>Written by Radya 100% & chatgpt 0%</small>
                 </p>
             </div>
 
             <div className="rounded-lg md:bg-black/50 text-white text-justify w-full md:w-[60%] mx-auto mt-10 mb-10 p-6">
-                <p>Kamu bisa ketik disini kalo mau bales yaaa</p>
+                <p>Kamu bisa ketik disini kalo mau bales yaaa (kalo mau aja)</p>
                 <p>Tapi sowry cuma bisa ngetik teks biasa hehe, ga bisa bold, garis miring dan lain lain</p>
-                <textarea value={balasan} onChange={(e) => setBalasan(e.target.value)} className="border w-full h-[300px] p-3 rounded-xl mt-4" placeholder="Tulis disini"></textarea>
+                <textarea value={balasan} onChange={(e) => setBalasan(e.target.value)} className="outline-none w-full h-[300px] p-3 rounded-xl mt-4" placeholder="Tulis disini"></textarea>
                 <button onClick={sendBalasan} className="mt-3 border-2 cursor-pointer border-pink-500 py-1 px-5 rounded-md hover:bg-pink-500 transition-all">{btnText}</button>
             </div>
         </>
