@@ -42,7 +42,7 @@ export default function PhotoCard({ photo }: any | undefined) {
             src={photo.imgUrl}
             alt={photo.caption ?? ""}
             fill
-            className="object-cover cursor-pointer hover:object-contain transition-all"
+            className="object-contain cursor-pointer hover:object-contain transition-all"
           />
         </div>
         <div className="p-4 text-white flex justify-between">

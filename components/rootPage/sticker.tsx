@@ -18,6 +18,8 @@ export default function circleOne() {
             </div>
 
             <div className="
+            hidden
+            md:block
             absolute
             z-0
             top-30
@@ -30,6 +32,8 @@ export default function circleOne() {
             "></div>
 
             <div className="
+            hidden
+            md:block
             absolute
             z-0
             top-230
@@ -42,6 +46,8 @@ export default function circleOne() {
             </div>
 
             <div className="
+            hidden
+            md:block
             absolute
             z-0
             top-300
@@ -54,6 +60,8 @@ export default function circleOne() {
             </div>
 
             <div className="
+            hidden
+            md:block
             absolute
             z-0
             top-440
@@ -66,6 +74,8 @@ export default function circleOne() {
             </div>
 
             <div className="
+            hidden
+            md:block
             absolute
             z-0
             top-510
