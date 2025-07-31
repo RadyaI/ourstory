@@ -7,6 +7,20 @@ export default function circleOne() {
             hidden
             md:block
             absolute
+            top-15
+            z-0
+            left-10
+            w-20
+            h-35
+            rotate-14
+            ">
+                <Image src={"/assets/our1.jpg"} alt="meng" fill className="object-contain"></Image>
+            </div>
+
+            <div className="
+            hidden
+            md:block
+            absolute
             top-95
             z-0
             left-10
@@ -43,6 +57,20 @@ export default function circleOne() {
             rounded-full
             ">
                 <Image src={"/assets/cat5.png"} alt="meng" fill className="object-cover rounded-full"></Image>
+            </div>
+            
+            <div className="
+            hidden
+            md:block
+            absolute
+            z-0
+            top-140
+            right-10
+            w-30
+            h-30    
+            rounded-full
+            ">
+                <Image src={"/assets/flower1.png"} alt="meng" fill className="object-cover rounded-full"></Image>
             </div>
 
             <div className="
