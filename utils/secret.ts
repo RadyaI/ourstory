@@ -1,0 +1,1 @@
+export const firebase_key = process.env.NEXT_PUBLIC_FIREBASE_KEY
