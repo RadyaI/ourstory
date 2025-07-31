@@ -1,6 +1,6 @@
 import Image from "next/image"
 
-export default function circleOne() {
+export default function CircleOne() {
     return (
         <>
             <div className="
