@@ -32,8 +32,6 @@ export default function circleOne() {
             </div>
 
             <div className="
-            hidden
-            md:block
             absolute
             z-0
             top-30
