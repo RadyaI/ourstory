@@ -4,7 +4,7 @@ import Link from "next/link"
 import { useEffect, useState } from "react"
 import toast, { Toaster } from "react-hot-toast";
 
-export default function Q1() {
+export default function Q3() {
   const [status, setStatus] = useState(true);
   const [percobaan, setPercobaan] = useState(2)
   const [jawaban, setJawaban] = useState("B");
@@ -22,7 +22,7 @@ export default function Q1() {
       if (percobaan === 0) {
         setStatus(false)
         setTimer(60)
-        sessionStorage.setItem("status1", "false")
+        sessionStorage.setItem("status3", "false")
       }
       setPercobaan((prev) => prev - 1)
       toast.error(`Salaaah 😢, sisa ${percobaan} kali coba`)
@@ -30,15 +30,15 @@ export default function Q1() {
   }
 
   const pilihan = [
-    { id: "A", text: "15" },
-    { id: "B", text: "105" },
-    { id: "C", text: '"105" + 5' },
-    { id: "D", text: "Error" },
-    { id: "E", text: "10" },
+    { id: "A", text: "4" },
+    { id: "B", text: "8" },
+    { id: "C", text: "6" },
+    { id: "D", text: "12" },
+    { id: "E", text: "Error" },
   ]
 
   useEffect(() => {
-    setStatus(!sessionStorage.getItem("status1"))
+    setStatus(!sessionStorage.getItem("status3"))
   }, [])
 
   useEffect(() => {
@@ -51,7 +51,7 @@ export default function Q1() {
     if (timer === 0) {
       setStatus(true);
       setPercobaan(2);
-      sessionStorage.removeItem("status1");
+      sessionStorage.removeItem("status3");
     }
     return () => clearInterval(interval);
   }, [status, timer]);
@@ -62,7 +62,7 @@ export default function Q1() {
 
       {/* 🔥 Judul + Tombol Kembali */}
       <div className="w-[90%] md:w-[50%] mx-auto mt-5 flex items-center justify-between text-white">
-        <h1 className="text-2xl font-bold">SOAL 1</h1>
+        <h1 className="text-2xl font-bold">SOAL 3</h1>
         <Link href="/quiz">
           <button className="bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded-lg font-semibold">
             Kembali
@@ -73,8 +73,8 @@ export default function Q1() {
       {/* 🔥 Soal */}
       <div className="text-white mx-auto mt-5 w-[90%] md:w-[50%] h-[170px] md:h-[270px] relative">
         <Image
-          src={"/quiz/1.png"}
-          alt="Soal 1"
+          src={"/quiz/3.png"}
+          alt="Soal 3"
           fill
           className="rounded-lg object-contain"
         />
