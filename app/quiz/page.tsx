@@ -14,7 +14,7 @@ export default function Quiz() {
           className="block p-5 rounded-lg border border-gray-700 bg-gray-800/60 hover:bg-gray-700/70 hover:border-blue-400 transition-all duration-300 shadow-md"
         >
           <p className="text-lg font-semibold">1. Soal 1 - Java</p>
-          <span className="text-sm text-blue-300">(new)</span>
+          <span className="text-sm text-blue-300"></span>
         </Link>
 
         {/* Card 2 */}
