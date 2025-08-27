@@ -7,7 +7,7 @@ import toast, { Toaster } from "react-hot-toast";
 export default function Q3() {
   const [status, setStatus] = useState(true);
   const [percobaan, setPercobaan] = useState(2)
-  const [jawaban, setJawaban] = useState("B");
+  const [jawaban, setJawaban] = useState("D");
   const [userJawab, setUserJawab] = useState("")
   const [timer, setTimer] = useState(60)
 
