@@ -5,6 +5,7 @@ export default function Quiz() {
     { id: 1, title: "Soal 1 - Java", badge: "done" },
     { id: 2, title: "Soal 2 - Java", badge: "done" },
     { id: 3, title: "Soal 3 - Java", badge: "done" },
+    { id: 4, title: "Soal 4 - SQL", badge: "new" },
   ]
 
   return (
@@ -24,7 +25,7 @@ export default function Quiz() {
               {quiz.id}. {quiz.title}
             </p>
             {quiz.badge && (
-              <span className="text-sm text-blue-300">{quiz.badge}</span>
+              <span className={`text-sm ${quiz.badge === "done" ? "text-green-300" : "text-blue-300"}`}>{quiz.badge}</span>
             )}
           </Link>
         ))}
