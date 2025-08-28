@@ -6,6 +6,7 @@ export default function Quiz() {
     { id: 2, title: "Soal 2 - Java", badge: "done" },
     { id: 3, title: "Soal 3 - Java", badge: "done" },
     { id: 4, title: "Soal 4 - SQL", badge: "new" },
+    { id: 5, title: "Soal 5 - SQL", badge: "new" },
   ]
 
   return (
