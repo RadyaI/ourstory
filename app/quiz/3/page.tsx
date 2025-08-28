@@ -11,6 +11,16 @@ export default function Q3() {
   const [userJawab, setUserJawab] = useState("")
   const [timer, setTimer] = useState(60)
 
+  const [togglePenjelasan, setTogglePenjelasan] = useState(false)
+
+  function penjelasan() {
+    if (userJawab === "") {
+      toast.success("Jawab dulu yaa")
+    } else {
+      setTogglePenjelasan(!togglePenjelasan)
+    }
+  }
+
   function cekJawaban() {
     if (userJawab === "") {
       toast.error("Pilih dulu jawabannya!");
@@ -79,6 +89,28 @@ export default function Q3() {
           className="rounded-lg object-contain"
         />
       </div>
+
+      <div className="text-white mx-auto mt-5 w-[90%] md:w-[50%]">
+        <p onClick={penjelasan} className="bg-gray-800 w-fit px-4 py-2 rounded-lg cursor-pointer hover:bg-gray-700">Penjelasan</p>
+      </div>
+
+      {/* PENJELASAN */}
+      {togglePenjelasan && (<div className="mb-5 text-white mx-auto mt-5 w-[90%] md:w-[50%] rounded-lg p-5 space-y-4 bg-gray-900/50">
+        <h2 className="font-bold">PENJELASAN</h2>
+        <p>Kita punya variabel, yaitu</p>
+        <ul>
+          <li>x = 10</li>
+          <li>y = 4</li>
+          <li>z = 2</li>
+        </ul>
+        <p>Kemudian setiap variabel kita update dengan operasi matematika</p>
+        <ul>
+          <li>x = x - y (dari variabel di atas <b>x itu 10</b> dan <b>y itu 4</b>) jadi 10 - 4 = <b>6</b></li>
+          <li>y = y + z (ini juga dari variabel di atas <b>y itu 4</b> dan <b>z itu 2</b>) jadi 4 + 2 = <b>6</b></li>
+          <li>z = x + y (nah kalo ini kita ambil dari variabel <b>x dan y</b> yang terbaru, yaitu <b>x = 6</b> dan <b>y = 6</b>) jadi 6 + 6 = <b>12</b></li>
+        </ul>
+        <p>Jadi hasil akhirnya System.out.println(z), dan nilai z adalah <b>12</b></p>
+      </div>)}
 
       {/* 🔥 Pilihan Jawaban */}
       <div className="mb-20 text-white mx-auto mt-5 w-[90%] md:w-[50%] rounded-lg p-5 space-y-4 bg-gray-900/50">

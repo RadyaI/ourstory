@@ -11,6 +11,16 @@ export default function Q2() {
     const [userJawab, setUserJawab] = useState("")
     const [timer, setTimer] = useState(60)
 
+    const [togglePenjelasan, setTogglePenjelasan] = useState(false)
+
+    function penjelasan() {
+        if (userJawab === "") {
+            toast.success("Jawab dulu yaa")
+        } else {
+            setTogglePenjelasan(!togglePenjelasan)
+        }
+    }
+
     function cekJawaban() {
         if (userJawab === "") {
             toast.error("Pilih dulu jawabannya!");
@@ -79,6 +89,24 @@ export default function Q2() {
                     className="rounded-lg object-contain"
                 />
             </div>
+
+            <div className="text-white mx-auto mt-5 w-[90%] md:w-[50%]">
+                <p onClick={penjelasan} className="bg-gray-800 w-fit px-4 py-2 rounded-lg cursor-pointer hover:bg-gray-700">Penjelasan</p>
+            </div>
+
+            {/* PENJELASAN */}
+            {togglePenjelasan && (<div className="mb-5 text-white mx-auto mt-5 w-[90%] md:w-[50%] rounded-lg p-5 space-y-4 bg-gray-900/50">
+                <h2 className="font-bold">PENJELASAN</h2>
+                <p>Kita punya 3 variabel, yaitu</p>
+                <ul>
+                    <li>x = 5</li>
+                    <li>y = 2</li>
+                    <li>z = 7</li>
+                </ul>
+                <p>Kemudian terdapat operasi matematika pada System.out.println, yaitu x + y * z</p>
+                <p>Sebenernya ini seperti rumus matematika pada umumnya, 5 + 2 * 7 kita kerjakan dulu perkaliannya <b>2 * 7 = 14</b>, kemudian <b>5 + 14 = 19</b></p>
+                <p>Outputnya adalah <b>19</b></p>
+            </div>)}
 
             {/* 🔥 Pilihan Jawaban */}
             <div className="mb-20 text-white mx-auto mt-5 w-[90%] md:w-[50%] rounded-lg p-5 space-y-4 bg-gray-900/50">

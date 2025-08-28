@@ -11,6 +11,16 @@ export default function Q1() {
   const [userJawab, setUserJawab] = useState("")
   const [timer, setTimer] = useState(60)
 
+  const [togglePenjelasan, setTogglePenjelasan] = useState(false)
+
+  function penjelasan() {
+    if (userJawab === "") {
+      toast.success("Jawab dulu yaa")
+    } else {
+      setTogglePenjelasan(!togglePenjelasan)
+    }
+  }
+
   function cekJawaban() {
     if (userJawab === "") {
       toast.error("Pilih dulu jawabannya!");
@@ -60,7 +70,7 @@ export default function Q1() {
     <>
       <Toaster position="top-right" />
 
-      {/* 🔥 Judul + Tombol Kembali */}
+      {/* Judul*/}
       <div className="w-[90%] md:w-[50%] mx-auto mt-5 flex items-center justify-between text-white">
         <h1 className="text-2xl font-bold">SOAL 1</h1>
         <Link href="/quiz">
@@ -70,7 +80,7 @@ export default function Q1() {
         </Link>
       </div>
 
-      {/* 🔥 Soal */}
+      {/* Soal */}
       <div className="text-white mx-auto mt-5 w-[90%] md:w-[50%] h-[170px] md:h-[270px] relative">
         <Image
           src={"/quiz/1.png"}
@@ -80,7 +90,22 @@ export default function Q1() {
         />
       </div>
 
-      {/* 🔥 Pilihan Jawaban */}
+      <div className="text-white mx-auto mt-5 w-[90%] md:w-[50%]">
+        <p onClick={penjelasan} className="bg-gray-800 w-fit px-4 py-2 rounded-lg cursor-pointer hover:bg-gray-700">Penjelasan</p>
+      </div>
+
+      {/* PENJELASAN */}
+      {togglePenjelasan && (<div className="mb-5 text-white mx-auto mt-5 w-[90%] md:w-[50%] rounded-lg p-5 space-y-4 bg-gray-900/50">
+        <h2 className="font-bold">PENJELASAN</h2>
+        <p>String s = "10"; (ini String atau teks)</p>
+        <p>String n = 5; (ini Integer atau angka)</p>
+        <p>Nah, pada System.out.println(s + n);</p>
+        <p>Terhadap penjumlahan variabel s + n, seperti yang kita tahu variabel yang memiliki tipe data yang berbeda itu tidak bisa dioperasikan (jumlah/kurang/kali/bagi)</p>
+        <p>Jadiii, kalo dijava ketika ada kondisi seperti ini maka otomatis <b>MENGGABUNGKAN</b> kedua nilai tersebut</p>
+        <p>s + n jadi "10" + 5 hasilnya 105</p>
+      </div>)}
+
+      {/* Pilihan Jawaban */}
       <div className="mb-20 text-white mx-auto mt-5 w-[90%] md:w-[50%] rounded-lg p-5 space-y-4 bg-gray-900/50">
         {pilihan.map((item) => (
           <button
