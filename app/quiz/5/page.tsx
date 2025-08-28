@@ -132,10 +132,10 @@ export default function Q5() {
         <p>Untuk mengambil data yang <b>spesifik</b> pada tabel, kita harus menyebut nama <b>kolom</b> yang ingin dipanggil </p>
         <p>Jadi, apapun yang berhubungan dengan <b>"SEMUA KOLOM"</b> kita selalu pake simbol bintang "*", Misal: </p>
         <p className="text-red-400">SELECT * FROM MAHASISWA</p>
-        <p>Nah, kalo mau panggil kolom yang spesifik * nya kita ganti pake nama kolomnya</p>
-        <p>Misal cuma pengen ambil namanya doang: </p>
+        <p>Nah, kalo mau panggil kolom yang spesifik, * nya kita ganti pake nama kolomnya</p>
+        <p>Misal, cuma pengen ambil namanya doang: </p>
         <p className="text-red-400">SELECT <span className="text-yellow-400">Nama</span> FROM MAHASISWA</p>
-        <p>Tapii Jinggy pengen ambil <b>Nama</b> sama <b>NIM</b> gimana dong?</p>
+        <p>Tapii Jinggy pengen ambil <b>Nama</b> sama <b>NIM</b> doang, gimana dong?</p>
         <p>Tinggal tambahin aja nama kolomnya</p>
         <p className="text-red-400">SELECT <span className="text-yellow-400">Nama, NIM</span> FROM MAHASISWA</p>
         <p>Jadi tinggal dipisah pake koma "," begituuu.</p>
