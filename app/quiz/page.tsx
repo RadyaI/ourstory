@@ -2,9 +2,9 @@ import Link from "next/link"
 
 export default function Quiz() {
   const quizzes = [
-    { id: 1, title: "Soal 1 - Java", badge: "" },
-    { id: 2, title: "Soal 2 - Java", badge: "new" },
-    { id: 3, title: "Soal 3 - Java", badge: "new" },
+    { id: 1, title: "Soal 1 - Java", badge: "done" },
+    { id: 2, title: "Soal 2 - Java", badge: "done" },
+    { id: 3, title: "Soal 3 - Java", badge: "done" },
   ]
 
   return (
