@@ -1,5 +1,7 @@
 "use client"
+import { checkStatus, updateStatus } from "@/utils/quizStatus";
 import Image from "next/image"
+import swal from "sweetalert";
 import Link from "next/link"
 import { useEffect, useState } from "react"
 import toast, { Toaster } from "react-hot-toast";
@@ -10,6 +12,30 @@ export default function Q5() {
   const [jawaban, setJawaban] = useState("E");
   const [userJawab, setUserJawab] = useState("")
   const [timer, setTimer] = useState(60)
+
+  const [quizStatus, setQuizStatus] = useState(true)
+  useEffect(() => {
+    const fetchStatus = async () => {
+      const status = await checkStatus("5")
+      setQuizStatus(status!)
+    }
+    fetchStatus()
+  }, [])
+
+  async function statusDone() {
+    const alert = await swal({
+      icon: "warning",
+      title: "Mau ditandain selesai?",
+      buttons: ["Engga", "Iya"]
+    })
+
+    if (alert) {
+      await updateStatus("5")
+      setQuizStatus(false)
+      toast.success("Donee")
+    }
+
+  }
 
   const [togglePenjelasan, setTogglePenjelasan] = useState(false)
 
@@ -148,7 +174,7 @@ export default function Q5() {
       </div>
 
       {/* Pilihan Jawaban */}
-      <div className="mb-20 text-white mx-auto mt-5 w-[90%] md:w-[50%] rounded-lg p-5 space-y-4 bg-gray-900/50">
+      <div className="mb-5 text-white mx-auto mt-5 w-[90%] md:w-[50%] rounded-lg p-5 space-y-4 bg-gray-900/50">
         {pilihan.map((item) => (
           <button
             key={item.id}
@@ -180,6 +206,10 @@ export default function Q5() {
           </button>
         )}
       </div>
+
+      {quizStatus && (<div className="mb-20 text-white mx-auto mt-5 w-[90%] md:w-[50%] rounded-lg p-5 space-y-4">
+        <button onClick={() => statusDone()} className="bg-green-600/50 hover:bg-green-500/50 py-2 px-4 cursor-pointer rounded-md">SELESAI</button>
+      </div>)}
     </>
   )
 }

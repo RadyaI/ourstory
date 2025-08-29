@@ -6,18 +6,17 @@ import Link from "next/link"
 import { useEffect, useState } from "react"
 import toast, { Toaster } from "react-hot-toast";
 
-export default function Q4() {
+export default function Q3() {
   const [status, setStatus] = useState(true);
   const [percobaan, setPercobaan] = useState(2)
   const [jawaban, setJawaban] = useState("C");
   const [userJawab, setUserJawab] = useState("")
   const [timer, setTimer] = useState(60)
 
-
   const [quizStatus, setQuizStatus] = useState(true)
   useEffect(() => {
     const fetchStatus = async () => {
-      const status = await checkStatus("4")
+      const status = await checkStatus("7")
       setQuizStatus(status!)
     }
     fetchStatus()
@@ -31,7 +30,7 @@ export default function Q4() {
     })
 
     if (alert) {
-      await updateStatus("4")
+      await updateStatus("7")
       setQuizStatus(false)
       toast.success("Donee")
     }
@@ -39,19 +38,6 @@ export default function Q4() {
   }
 
   const [togglePenjelasan, setTogglePenjelasan] = useState(false)
-
-  const soalSQL = [
-    { no: 1, nama: "Radya", nim: "2311001", gender: "Laki-laki", umur: 20, jurusan: "Informatika" },
-    { no: 2, nama: "Aini", nim: "2311002", gender: "Laki-laki", umur: 21, jurusan: "Sistem Informasi" },
-    { no: 3, nama: "Jiggy", nim: "2311003", gender: "Perempuan", umur: 19, jurusan: "Teknik Komputer" },
-    { no: 4, nama: "Andi", nim: "2311004", gender: "Laki-laki", umur: 22, jurusan: "Teknik Elektro" },
-    { no: 5, nama: "Maya", nim: "2311005", gender: "Perempuan", umur: 20, jurusan: "Manajemen Informatika" },
-    { no: 6, nama: "Rizky", nim: "2311006", gender: "Laki-laki", umur: 23, jurusan: "Data Science" },
-    { no: 7, nama: "Dewi", nim: "2311007", gender: "Perempuan", umur: 21, jurusan: "Informatika" },
-    { no: 8, nama: "Agus", nim: "2311008", gender: "Laki-laki", umur: 24, jurusan: "Sistem Informasi" },
-    { no: 9, nama: "Nina", nim: "2311009", gender: "Perempuan", umur: 22, jurusan: "Teknik Komputer" },
-    { no: 10, nama: "Joko", nim: "2311010", gender: "Laki-laki", umur: 20, jurusan: "Informatika" },
-  ];
 
   function penjelasan() {
     if (userJawab === "") {
@@ -72,7 +58,7 @@ export default function Q4() {
       if (percobaan === 0) {
         setStatus(false)
         setTimer(60)
-        sessionStorage.setItem("status4", "false")
+        sessionStorage.setItem("status7", "false")
       }
       setPercobaan((prev) => prev - 1)
       toast.error(`Salaaah 😢, sisa ${percobaan} kali coba`)
@@ -80,15 +66,15 @@ export default function Q4() {
   }
 
   const pilihan = [
-    { id: "A", text: "SELECT all FROM MAHASISWA" },
-    { id: "B", text: "SELECT tabel FROM MAHASISWA" },
-    { id: "C", text: "SELECT * FROM MAHASISWA" },
-    { id: "D", text: "SELECT MAHASISWA FROM MAHASISWA" },
-    { id: "E", text: "Tidak ada query yang benar" },
+    { id: "A", text: "Lulus" },
+    { id: "B", text: "Tidak boleh masuk" },
+    { id: "C", text: "Cadangan" },
+    { id: "D", text: "Tidak Lulus" },
+    { id: "E", text: "Error" },
   ]
 
   useEffect(() => {
-    setStatus(!sessionStorage.getItem("status4"))
+    setStatus(!sessionStorage.getItem("status7"))
   }, [])
 
   useEffect(() => {
@@ -101,7 +87,7 @@ export default function Q4() {
     if (timer === 0) {
       setStatus(true);
       setPercobaan(2);
-      sessionStorage.removeItem("status4");
+      sessionStorage.removeItem("status7");
     }
     return () => clearInterval(interval);
   }, [status, timer]);
@@ -112,7 +98,7 @@ export default function Q4() {
 
       {/* Judul + Tombol Kembali */}
       <div className="w-[90%] md:w-[50%] mx-auto mt-5 flex items-center justify-between text-white">
-        <h1 className="text-2xl font-bold">SOAL 4</h1>
+        <h1 className="text-2xl font-bold">SOAL 7</h1>
         <Link href="/quiz">
           <button className="bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded-lg font-semibold">
             Kembali
@@ -120,59 +106,66 @@ export default function Q4() {
         </Link>
       </div>
 
-      {/* SQL TABEL */}
-      <div className="text-white mx-auto mt-5 w-[90%] md:w-[50%] h-[300px] md:h-[400px] relative overflow-auto">
-        <h2 className="font-bold mb-4 text-green-400">TABEL MAHASISWA</h2>
-        <table className="table-auto w-full border border-gray-600 text-sm md:text-base">
-          <thead className="bg-gray-800">
-            <tr>
-              <th className="border border-gray-600 px-2 py-1">No</th>
-              <th className="border border-gray-600 px-2 py-1">Nama</th>
-              <th className="border border-gray-600 px-2 py-1">NIM</th>
-              <th className="border border-gray-600 px-2 py-1">Gender</th>
-              <th className="border border-gray-600 px-2 py-1">Umur</th>
-              <th className="border border-gray-600 px-2 py-1">Jurusan</th>
-            </tr>
-          </thead>
-          <tbody>
-            {soalSQL.map((row) => (
-              <tr key={row.no}>
-                <td className="border border-gray-600 px-2 py-1 text-center">{row.no}</td>
-                <td className="border border-gray-600 px-2 py-1">{row.nama}</td>
-                <td className="border border-gray-600 px-2 py-1">{row.nim}</td>
-                <td className="border border-gray-600 px-2 py-1">{row.gender}</td>
-                <td className="border border-gray-600 px-2 py-1 text-center">{row.umur}</td>
-                <td className="border border-gray-600 px-2 py-1">{row.jurusan}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+      {/* Soal */}
+      <div className="text-white mx-auto mt-5 w-[90%] md:w-[60%] h-[190px] md:h-[300px] relative">
+        <Image
+          src={"/quiz/7.png"}
+          alt="Soal 7"
+          fill
+          className="rounded-lg object-contain"
+        />
       </div>
 
-      <div className="text-white mt-4 mx-auto w-[90%] md:w-[50%]">
+      <div className="text-white mx-auto mt-5 w-[90%] md:w-[50%]">
         <p onClick={penjelasan} className="bg-gray-800 w-fit px-4 py-2 rounded-lg cursor-pointer hover:bg-gray-700">Penjelasan</p>
       </div>
 
       {/* PENJELASAN */}
       {togglePenjelasan && (<div className="mb-5 text-white mx-auto mt-5 w-[90%] md:w-[50%] rounded-lg p-5 space-y-4 bg-gray-900/50">
-        <h2 className="font-bold">PENJELASAN</h2>
-        <p>Untuk mengambil semua data pada tabel, keyword yang digunakan <br />
-          adalah "*" bintang</p>
-        <p>Jadi, apapun yang berhubungan dengan <b>"SEMUA KOLOM"</b> kita selalu pake simbol bintang "*"</p>
-        <p>jawaban yang tepat untuk permintaan Jiggy adalah:</p>
-        <p className="text-red-400">SELECT * FROM MAHASISWA</p>
-        <p>kalo kita terjemahin, kira kira begini:</p>
-        <p className="text-red-400">ambil SEMUA dari MAHASISWA</p>
-        <p>Oh iya <b>"MAHASISWA"</b> itu nama tabelnya yaaa</p>
+        <small className="text-pink-300">By chatgpt (sementara)</small>
+        <h2 className="text-2xl font-bold mt-4">🔎 Penjelasan Bagian <code>if-else</code></h2>
+
+        <p>Jadi gini ceritanya...</p>
+
+        <p>
+          Ada dua syarat yang dicek sama program ini: <b>usia</b> dan <b>tinggi</b>.
+          Programnya bakal mikir kayak orang lagi seleksi masuk tim.
+        </p>
+
+        <ul className="list-disc ml-6 space-y-4 mt-4">
+          <li>
+            Pertama, dia nanya:
+            <code className="bg-gray-100 px-2 py-1 rounded text-black font-bold">if (usia &gt; 25)</code><br />
+            👉 Artinya, <b>kalau usia lebih dari 25</b>, baru deh kita lanjut lihat tinggi badan.
+            Kalau usianya masih 25 atau kurang? 💥 langsung ditolak dengan tulisan
+            <span className="bg-red-100 px-2 py-1 rounded text-black font-bold">"Tidak boleh masuk"</span>.
+          </li>
+
+          <li>
+            Kalau lolos usia, lanjut ke pertanyaan kedua:
+            <code className="bg-gray-100 px-2 py-1 rounded text-black font-bold">if (tinggi &gt; 160)</code><br />
+            👉 Artinya, <b>kalau tinggi badan lebih dari 160</b>, program bakal nyetak
+            <span className="bg-green-100 px-2 py-1 rounded text-black font-bold">"Lulus"</span>.
+          </li>
+
+          <li>
+            Tapi... kalau tinggi badan <b>nggak sampai 161</b>, ya nasibnya jadi cadangan.
+            Output-nya: <span className="bg-yellow-100 px-2 py-1 rounded text-black font-bold">"Cadangan"</span>.
+          </li>
+        </ul>
+
+        <h3 className="text-xl font-semibold mt-6">🎬 Alurnya Ibarat Interview</h3>
+        <p>
+          Bayangin kamu lagi tes seleksi:<br />
+          - Pertanyaan pertama: "Umurmu udah lebih dari 25?"
+          ➝ Kalau belum, <b>nggak usah lanjut</b>.
+          - Kalau udah, dilanjut: "Tinggimu lebih dari 160 cm?"
+          ➝ Kalau iya, <b>LULUS</b>.
+          ➝ Kalau kurang, ya <b>masuk cadangan</b>.
+        </p>
       </div>)}
 
-      {/* SOAL */}
-      <div className="text-white mt-5 mx-auto w-[90%] md:w-[50%]">
-        <p className="font-bold mb-2 text-green-400">INSTRUKSI</p>
-        <p>Jiggy ingin mengambil SEMUA data yang ada di tabel, bantu Jiggy untuk membuat query sql untuk mendapatkan semua datanya!</p>
-      </div>
-
-      {/* Pilihan Jawaban */}
+      {/* 🔥 Pilihan Jawaban */}
       <div className="mb-5 text-white mx-auto mt-5 w-[90%] md:w-[50%] rounded-lg p-5 space-y-4 bg-gray-900/50">
         {pilihan.map((item) => (
           <button
@@ -205,6 +198,7 @@ export default function Q4() {
           </button>
         )}
       </div>
+
       {quizStatus && (<div className="mb-20 text-white mx-auto mt-5 w-[90%] md:w-[50%] rounded-lg p-5 space-y-4">
         <button onClick={() => statusDone()} className="bg-green-600/50 hover:bg-green-500/50 py-2 px-4 cursor-pointer rounded-md">SELESAI</button>
       </div>)}
